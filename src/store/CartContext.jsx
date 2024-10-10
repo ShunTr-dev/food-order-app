@@ -2,8 +2,8 @@ import { createContext, useReducer } from 'react'
 
 const CartContext = createContext({
     items: [],
-    addItem: (item) => {},
-    removeItem: (id) => {},
+    addItem: (item) => {}, // eslint-disable-line
+    removeItem: (id) => {}, // eslint-disable-line
 })
 
 function cartReducer(state, action) {
