@@ -1,5 +1,4 @@
 import { createPortal } from 'react-dom'
-import Button from './Button'
 import { useEffect, useRef } from 'react'
 
 export default function Modal({ children, open, className = '' }) {
