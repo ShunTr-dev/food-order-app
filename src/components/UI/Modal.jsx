@@ -6,22 +6,20 @@ export default function Modal({ children, open, className = '' }) {
     const dialog = useRef()
 
     useEffect(() => {
+        const modal = dialog.current
         if (open) {
-            dialog.current.showModal()
-        } else {
-            //document.body.style.overflow = 'auto'
+            modal.showModal()
+        }
+
+        return () => {
+            modal.close()
         }
     }, [open])
 
-    return (
-        createPortal(
-            <dialog className={`modal ${className}`} ref={dialog}>
-                <div className="modal-content">{children}</div>
-                <div className="modal-actions">
-                    <Button onClick={onClose}>Close</Button>
-                </div>
-            </dialog>
-        ),
+    return createPortal(
+        <dialog className={`modal ${className}`} ref={dialog}>
+            <div className="modal-content">{children}</div>
+        </dialog>,
         document.getElementById('modal')
     )
 }
